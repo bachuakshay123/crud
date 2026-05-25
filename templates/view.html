@@ -15,6 +15,10 @@
 
                         <div class="d-flex justify-content-between mb-3">
                             <h3>Student Details</h3>
+                            <form method="GET" class="d-flex">
+                                <input type="text" name="search" class="form-control me-2" placeholder="Search Here" value="{{ search }}">
+                                <button type="submit" class="btn btn-dark">Search</button>
+                            </form>
                             <a href="{% url 'home' %}" class="btn btn-primary">Add Student</a>
                         </div>
 
@@ -51,7 +55,7 @@
                                 <ul class="pagination">
                                     {% if page_obj.has_previous %}
                                     <li class="page-item">
-                                        <a class="page-link"href="?page={{ page_obj.previous_page_number }}">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&search={{ search }}">
                                             Previous
                                         </a>
                                     </li>
@@ -63,7 +67,7 @@
                                     </li>
                                     {% if page_obj.has_next %}
                                     <li class="page-item">
-                                        <a class="page-link"href="?page={{ page_obj.next_page_number }}">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}&search={{ search }}">
                                             Next
                                         </a>
                                     </li>
